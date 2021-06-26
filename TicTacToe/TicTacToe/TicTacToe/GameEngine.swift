@@ -22,7 +22,12 @@ protocol GameEnginePrivateInterface {
 
 final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
 
-    var ticTacToeMatrix: [[TicTacToeType]] = []
+    var ticTacToeMatrix: [[TicTacToeType]] =
+        [
+            [.empty, .empty, .empty],
+            [.empty, .empty, .empty],
+            [.empty, .empty, .empty]
+        ]
 
     func gameResult() -> GameResult {
 
@@ -33,6 +38,11 @@ final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
         let horizontalResult = horizontallyCheckTheMatrix()
         if horizontalResult != .none {
             return horizontalResult.gameResult()
+        }
+
+        let verticalResult = verticallyCheckTheMatrix()
+        if verticalResult != .none {
+            return verticalResult.gameResult()
         }
 
         return .gameContinue
@@ -84,6 +94,26 @@ private extension GameEngine {
 
             for element in row {
                 if element != previous {
+                    result = .none
+                    break
+                }
+            }
+
+            if result != .none {
+                return result
+            }
+        }
+
+        return .none
+    }
+
+    func verticallyCheckTheMatrix() -> WinnerType {
+        for x in 0..<ticTacToeMatrix.count {
+            let previous = ticTacToeMatrix[0][x]
+            var result = WinnerType.winnerType(for: previous)
+
+            for y in 1..<ticTacToeMatrix.count {
+                if ticTacToeMatrix[y][x] != previous {
                     result = .none
                     break
                 }
