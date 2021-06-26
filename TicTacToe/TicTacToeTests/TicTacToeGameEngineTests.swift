@@ -13,6 +13,21 @@ final class TicTacToeGameEngineTests: XCTestCase {
     private let gameEngine = GameEngine()
 }
 
+// MARK: - Restart game tests
+
+extension TicTacToeGameEngineTests {
+
+    func testGameRestartedForChangedState() {
+
+        gameEngine.gameState = .o
+        gameEngine.restartTheGame()
+        XCTAssertEqual(
+            gameEngine.gameState,
+            GameState.x,
+            "Game state should be X after game is restarted")
+    }
+}
+
 // MARK: - Mark and change game state tests
 
 extension TicTacToeGameEngineTests {

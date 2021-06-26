@@ -16,6 +16,9 @@ protocol GameEngineInterface {
 
     /// Marks and return next state
     func markAndChangeGameState(row: Int, column: Int) -> GameState
+
+    /// Restart game and empty stored variables
+    func restartTheGame()
 }
 
 protocol GameEnginePrivateInterface {
@@ -48,6 +51,10 @@ final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
             [.empty, .empty, .empty],
             [.empty, .empty, .empty]
         ]
+
+    func restartTheGame() {
+        gameState = .x
+    }
 
     func markAndChangeGameState(row: Int, column: Int) -> GameState {
         guard ticTacToeMatrix[row][column] == .empty else { return gameState }
