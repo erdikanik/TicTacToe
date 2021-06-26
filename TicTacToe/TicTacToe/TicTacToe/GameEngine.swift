@@ -50,6 +50,8 @@ final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
         ]
 
     func markAndChangeGameState(row: Int, column: Int) -> GameState {
+        guard ticTacToeMatrix[row][column] == .empty else { return gameState }
+
         ticTacToeMatrix[row][column] = gameState.toTicTacToeType()
         toggleGameState()
         return gameState

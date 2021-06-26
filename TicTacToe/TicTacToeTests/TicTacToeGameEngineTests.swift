@@ -31,6 +31,20 @@ extension TicTacToeGameEngineTests {
             GameState.o,
             "Game state should be O")
     }
+
+    func testMarkAndChangeGameStateForFilledCase() {
+        gameEngine.gameState = .o
+        gameEngine.ticTacToeMatrix = [
+            [.x, .empty, .empty],
+            [.empty, .empty, .empty],
+            [.empty, .empty, .empty]
+        ]
+
+        XCTAssertEqual(
+            gameEngine.markAndChangeGameState(row: 0, column: 0),
+            GameState.o,
+            "Game state should be O")
+    }
 }
 
 // MARK: - Game result tests
