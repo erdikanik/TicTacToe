@@ -14,6 +14,40 @@ final class TicTacToeViewModelTests: XCTestCase { }
 
 extension TicTacToeViewModelTests {
 
+    func testMarkGameBoardFilledCell() {
+        let viewModel = TicTacToeViewModel()
+        let gameEngine = GameEngine()
+
+        gameEngine.gameState = .o
+        gameEngine.ticTacToeMatrix = [
+            [.x, .o, .empty],
+            [.empty, .o, .x],
+            [.empty, .empty, .x]
+        ]
+
+        viewModel.gameEngine = gameEngine
+
+        let resultTypes = ["X", "O", "", "", "O", "X", "", "", "X"]
+
+        viewModel.stateChangeHandler = { state in
+            switch state {
+            case .gameStateChanged(let types, let state):
+                XCTAssertEqual(types, resultTypes, "Result types should be ")
+                XCTAssertEqual(state, NSLocalizedString("Player O", comment: ""))
+            default:
+                break
+            }
+        }
+
+        viewModel.markGameBoard(with: 8)
+
+        let expectation = XCTestExpectation(description: "Wait for testing")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.3)
+    }
+
     func testMarkGameBoardEmptyCell() {
         let viewModel = TicTacToeViewModel()
         let gameEngine = GameEngine()
