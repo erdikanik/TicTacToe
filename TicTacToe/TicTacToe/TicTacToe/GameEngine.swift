@@ -11,10 +11,25 @@ import Foundation
 /// Game engine interface for communicating with game engine
 protocol GameEngineInterface {
 
-    // TODO: Implement game engine interface
+    /// Game result
+    func gameResult() -> GameResult
 }
 
-final class GameEngine {
+protocol GameEnginePrivateInterface {
 
-    // TODO: Implement game engine
+    var ticTacToeMatrix: [[TicTacToeType]] { get set }
+}
+
+final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
+
+    var ticTacToeMatrix: [[TicTacToeType]] = []
+
+    func gameResult() -> GameResult {
+
+        guard !ticTacToeMatrix.isEmpty else {
+            return .gameContinue
+        }
+
+        return .gameContinue
+    }
 }

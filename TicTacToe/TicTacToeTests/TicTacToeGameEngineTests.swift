@@ -10,5 +10,15 @@ import XCTest
 
 final class TicTacToeGameEngineTests: XCTestCase {
 
-    // TODO Implement test cases
+    private let gameEngine = GameEngine()
+
+    func testGameResultForEmptyCase() {
+        gameEngine.ticTacToeMatrix = [
+            [.empty, .empty, .empty],
+            [.empty, .empty, .empty],
+            [.empty, .empty, .empty]
+        ]
+
+        XCTAssertEqual(.gameContinue, gameEngine.gameResult(), "Game should continue for empty matrix case")
+    }
 }

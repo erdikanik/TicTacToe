@@ -17,6 +17,8 @@
 		87C7F08B26874B0B00977457 /* TicTacToeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7F08A26874B0B00977457 /* TicTacToeViewModel.swift */; };
 		87C7F09426874B5000977457 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7F09326874B5000977457 /* GameEngine.swift */; };
 		87C7F0A22687513100977457 /* TicTacToeGameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7F0A12687513100977457 /* TicTacToeGameEngineTests.swift */; };
+		87C7F0AA268754CD00977457 /* TicTacToeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7F0A9268754CD00977457 /* TicTacToeType.swift */; };
+		87C7F0AF268755A300977457 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7F0AE268755A300977457 /* GameResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		87C7F08A26874B0B00977457 /* TicTacToeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeViewModel.swift; sourceTree = "<group>"; };
 		87C7F09326874B5000977457 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		87C7F0A12687513100977457 /* TicTacToeGameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeGameEngineTests.swift; sourceTree = "<group>"; };
+		87C7F0A9268754CD00977457 /* TicTacToeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeType.swift; sourceTree = "<group>"; };
+		87C7F0AE268755A300977457 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 				87C7F08A26874B0B00977457 /* TicTacToeViewModel.swift */,
 				87C7F08226874AA800977457 /* TicTacToeViewController.swift */,
 				87C7F09326874B5000977457 /* GameEngine.swift */,
+				87C7F0A9268754CD00977457 /* TicTacToeType.swift */,
+				87C7F0AE268755A300977457 /* GameResult.swift */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -273,7 +279,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				87C7F09426874B5000977457 /* GameEngine.swift in Sources */,
+				87C7F0AF268755A300977457 /* GameResult.swift in Sources */,
 				87C7F04D268748E300977457 /* AppDelegate.swift in Sources */,
+				87C7F0AA268754CD00977457 /* TicTacToeType.swift in Sources */,
 				87C7F04F268748E300977457 /* SceneDelegate.swift in Sources */,
 				87C7F08326874AA800977457 /* TicTacToeViewController.swift in Sources */,
 				87C7F08B26874B0B00977457 /* TicTacToeViewModel.swift in Sources */,
