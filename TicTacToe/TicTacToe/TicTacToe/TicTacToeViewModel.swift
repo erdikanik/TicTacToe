@@ -102,9 +102,9 @@ private extension TicTacToeViewModel {
         case .draw:
             return NSLocalizedString("DRAW", comment: "")
         case .winO:
-            return NSLocalizedString("WIN O", comment: "")
+            return NSLocalizedString("O WON", comment: "")
         case .winX:
-            return NSLocalizedString("WIN X", comment: "")
+            return NSLocalizedString("X WON", comment: "")
         default:
             return ""
         }
