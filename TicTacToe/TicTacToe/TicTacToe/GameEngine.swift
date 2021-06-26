@@ -45,6 +45,11 @@ final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
             return verticalResult.gameResult()
         }
 
+        let crossResult = crossCheckTheMatrix()
+        if crossResult != .none {
+            return crossResult.gameResult()
+        }
+
         return .gameContinue
     }
 }
@@ -122,6 +127,23 @@ private extension GameEngine {
             if result != .none {
                 return result
             }
+        }
+
+        return .none
+    }
+
+    func crossCheckTheMatrix() -> WinnerType {
+
+        if ticTacToeMatrix[0][0] != .empty &&
+            ((ticTacToeMatrix[0][0] == ticTacToeMatrix[1][1])
+                && (ticTacToeMatrix[0][0] == ticTacToeMatrix[2][2])) {
+            return WinnerType.winnerType(for: ticTacToeMatrix[0][0])
+        }
+
+        if ticTacToeMatrix[0][2] != .empty &&
+            ((ticTacToeMatrix[0][2] == ticTacToeMatrix[1][1])
+                && (ticTacToeMatrix[0][2] == ticTacToeMatrix[2][0])) {
+            return WinnerType.winnerType(for: ticTacToeMatrix[0][2])
         }
 
         return .none

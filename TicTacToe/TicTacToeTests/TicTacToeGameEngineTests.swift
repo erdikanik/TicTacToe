@@ -62,4 +62,40 @@ final class TicTacToeGameEngineTests: XCTestCase {
 
         XCTAssertEqual(.winO, gameEngine.gameResult(), "Game result should be O win in O vertical case")
     }
+
+    func testGameResultXCrossWinnerCase() {
+        gameEngine.ticTacToeMatrix = [
+            [.empty, .empty, .x],
+            [.x, .x, .o],
+            [.x, .o, .o]
+        ]
+
+        XCTAssertEqual(.winX, gameEngine.gameResult(), "Game result should be X win in winner X case")
+
+        gameEngine.ticTacToeMatrix = [
+            [.x, .empty, .o],
+            [.x, .x, .o],
+            [.empty, .o, .x]
+        ]
+
+        XCTAssertEqual(.winX, gameEngine.gameResult(), "Game result should be X win in winner X case")
+    }
+
+    func testGameResultOCrossWinnerCase() {
+         gameEngine.ticTacToeMatrix = [
+             [.x, .empty, .o],
+             [.x, .o, .o],
+             [.o, .x, .x]
+         ]
+
+         XCTAssertEqual(.winO, gameEngine.gameResult(), "Game result should be O win in winner O case")
+
+        gameEngine.ticTacToeMatrix = [
+            [.o, .x, .empty],
+            [.x, .o, .o],
+            [.x, .x, .o]
+        ]
+
+        XCTAssertEqual(.winO, gameEngine.gameResult(), "Game result should be O win in winner O case")
+    }
 }
