@@ -36,6 +36,7 @@ final class TicTacToeViewModel: TicTacToeViewModelPrivateInterface {
 
         case gameStarted([String], String)
         case gameStateChanged([String], String)
+        case gameFinished(String)
     }
 
     var stateChangeHandler: ((State) -> Void)?
@@ -64,6 +65,11 @@ extension TicTacToeViewModel: TicTacToeViewModelInterface {
                 gameEngine.gameBoardValues.map { localizedTicTacTocType(type: $0) }, localizedPlayerState(state: state)
             )
         )
+
+        let gameResult = gameEngine.gameResult()
+        if gameResult != .gameContinue {
+            stateChangeHandler?(.gameFinished(localizeGameResult(result: gameResult)))
+        }
     }
 }
 
@@ -88,6 +94,19 @@ private extension TicTacToeViewModel {
             return NSLocalizedString("O", comment: "")
         case .empty:
             return NSLocalizedString("", comment: "")
+        }
+    }
+
+    func localizeGameResult(result: GameResult) -> String {
+        switch result {
+        case .draw:
+            return NSLocalizedString("DRAW", comment: "")
+        case .winO:
+            return NSLocalizedString("WIN O", comment: "")
+        case .winX:
+            return NSLocalizedString("WIN X", comment: "")
+        default:
+            return ""
         }
     }
 }
