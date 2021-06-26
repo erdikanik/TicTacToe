@@ -14,6 +14,10 @@ protocol TicTacToeViewModelInterface {
 
     /// Call when it is needed to restart the game
     func needsToRestartTheGame()
+
+    /// Put TicTacToe marker to board
+    /// - Parameter indexPathRow: Array index
+    func markGameBoard(with indexPathRow: Int)
 }
 
 protocol TicTacToeViewModelPrivateInterface {
@@ -23,9 +27,15 @@ protocol TicTacToeViewModelPrivateInterface {
 
 final class TicTacToeViewModel: TicTacToeViewModelPrivateInterface {
 
+    private enum Constant {
+
+        static let gridSize = 3
+    }
+
     enum State {
 
         case gameStarted([String], String)
+        case gameStateChanged([String], String)
     }
 
     var stateChangeHandler: ((State) -> Void)?
@@ -42,6 +52,16 @@ extension TicTacToeViewModel: TicTacToeViewModelInterface {
             .gameStarted(
                 gameEngine.gameBoardValues.map { localizedTicTacTocType(type: $0) },
                 localizedPlayerState(state: gameEngine.playerState)
+            )
+        )
+    }
+
+    func markGameBoard(with indexPathRow: Int) {
+        let state = gameEngine.markAndChangeGameState(row: indexPathRow / Constant.gridSize,
+                                                      column: indexPathRow % Constant.gridSize)
+        stateChangeHandler?(
+            .gameStateChanged(
+                gameEngine.gameBoardValues.map { localizedTicTacTocType(type: $0) }, localizedPlayerState(state: state)
             )
         )
     }
