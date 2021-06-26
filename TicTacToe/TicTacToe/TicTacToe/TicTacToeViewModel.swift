@@ -50,9 +50,9 @@ private extension TicTacToeViewModel {
     func localizedPlayerState(state: GameState) -> String {
         switch state {
         case .x:
-            return NSLocalizedString("State X", comment: "")
+            return NSLocalizedString("Player X", comment: "")
         case .o:
-            return NSLocalizedString("State Y", comment: "")
+            return NSLocalizedString("Player Y", comment: "")
         }
     }
 }

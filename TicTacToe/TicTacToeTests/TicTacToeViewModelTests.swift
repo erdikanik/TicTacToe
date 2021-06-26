@@ -14,6 +14,32 @@ final class TicTacToeViewModelTests: XCTestCase { }
 
 extension TicTacToeViewModelTests {
 
+    func testNeedsToRestartTheGameForPlayerStates() {
+
+        let viewModel = TicTacToeViewModel()
+
+        viewModel.stateChangeHandler = { state in
+            switch state {
+            case .gameStarted(_, let playerState):
+                XCTAssertEqual(
+                    playerState,
+                    NSLocalizedString("Player X", comment: ""),
+                    "Player state should be 'Player X'"
+                )
+            default:
+                break
+            }
+        }
+
+        viewModel.needsToRestartTheGame()
+
+        let expectation = XCTestExpectation(description: "Wait for testing")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.2)
+    }
+
     func testNeedsToRestartTheGameForTypes() {
 
         let viewModel = TicTacToeViewModel()
