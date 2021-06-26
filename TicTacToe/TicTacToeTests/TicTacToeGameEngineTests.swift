@@ -21,4 +21,25 @@ final class TicTacToeGameEngineTests: XCTestCase {
 
         XCTAssertEqual(.gameContinue, gameEngine.gameResult(), "Game should continue for empty matrix case")
     }
+
+    func testGameResultXHorizontalWinnerCase() {
+        gameEngine.ticTacToeMatrix = [
+            [.o, .empty, .empty],
+            [.x, .x, .x],
+            [.x, .o, .o]
+        ]
+
+        XCTAssertEqual(.winX, gameEngine.gameResult(), "Game result should be x win in winner X vertical case")
+    }
+
+    func testGameResultOHorizontalWinnerCase() {
+         gameEngine.ticTacToeMatrix = [
+             [.x, .empty, .x],
+             [.x, .empty, .x],
+             [.o, .o, .o]
+         ]
+
+         XCTAssertEqual(.winO, gameEngine.gameResult(),
+                        "Game result should be O win in winner O vertical case")
+     }
 }
