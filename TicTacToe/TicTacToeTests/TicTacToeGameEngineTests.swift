@@ -11,6 +11,11 @@ import XCTest
 final class TicTacToeGameEngineTests: XCTestCase {
 
     private let gameEngine = GameEngine()
+}
+
+// MARK: - Game result tests
+
+extension TicTacToeGameEngineTests {
 
     func testGameResultForEmptyCase() {
         gameEngine.ticTacToeMatrix = [
