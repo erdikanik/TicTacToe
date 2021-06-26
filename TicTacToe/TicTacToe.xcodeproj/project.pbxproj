@@ -19,6 +19,7 @@
 		87C7F0A22687513100977457 /* TicTacToeGameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7F0A12687513100977457 /* TicTacToeGameEngineTests.swift */; };
 		87C7F0AA268754CD00977457 /* TicTacToeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7F0A9268754CD00977457 /* TicTacToeType.swift */; };
 		87C7F0AF268755A300977457 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7F0AE268755A300977457 /* GameResult.swift */; };
+		87EDEF622687A22600F93087 /* TicTacToeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EDEF612687A22600F93087 /* TicTacToeViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		87C7F0A12687513100977457 /* TicTacToeGameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeGameEngineTests.swift; sourceTree = "<group>"; };
 		87C7F0A9268754CD00977457 /* TicTacToeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeType.swift; sourceTree = "<group>"; };
 		87C7F0AE268755A300977457 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		87EDEF612687A22600F93087 /* TicTacToeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				87C7F065268748E600977457 /* Info.plist */,
 				87C7F0A12687513100977457 /* TicTacToeGameEngineTests.swift */,
+				87EDEF612687A22600F93087 /* TicTacToeViewModelTests.swift */,
 			);
 			path = TicTacToeTests;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87C7F0A22687513100977457 /* TicTacToeGameEngineTests.swift in Sources */,
+				87EDEF622687A22600F93087 /* TicTacToeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

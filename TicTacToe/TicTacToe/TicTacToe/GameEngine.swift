@@ -22,6 +22,9 @@ protocol GameEngineInterface {
 
     /// Current values of game board
     var gameBoardValues: [TicTacToeType] { get }
+
+    /// Player state
+    var playerState: GameState { get }
 }
 
 protocol GameEnginePrivateInterface {
@@ -57,6 +60,10 @@ final class GameEngine: GameEnginePrivateInterface {
 
     var gameBoardValues: [TicTacToeType] {
         ticTacToeMatrix.flatMap { $0 }
+    }
+
+    var playerState: GameState {
+        return gameState
     }
 }
 

@@ -9,10 +9,50 @@ import Foundation
 
 protocol TicTacToeViewModelInterface {
 
-    // TODO: Implement view model interface
+    /// State change handler of the tic tac toe view model
+    var stateChangeHandler: ((TicTacToeViewModel.State) -> Void)? { get set }
+
+    /// Call when it is needed to restart the game
+    func needsToRestartTheGame()
 }
 
-final class TicTacToeViewModel {
+protocol TicTacToeViewModelPrivateInterface {
 
-    // TODO: Implement view model
+    var gameEngine: GameEngineInterface { get set }
+}
+
+final class TicTacToeViewModel: TicTacToeViewModelPrivateInterface {
+
+    enum State {
+
+        case gameStarted([TicTacToeType], String)
+    }
+
+    var stateChangeHandler: ((State) -> Void)?
+
+    var gameEngine: GameEngineInterface = GameEngine()
+}
+
+// MARK - TicTacToeViewModelInterface
+
+extension TicTacToeViewModel: TicTacToeViewModelInterface {
+
+    func needsToRestartTheGame() {
+        stateChangeHandler?(.gameStarted(gameEngine.gameBoardValues,
+                                        localizedPlayerState(state: gameEngine.playerState)))
+    }
+}
+
+// MARK - Helper methods
+
+private extension TicTacToeViewModel {
+
+    func localizedPlayerState(state: GameState) -> String {
+        switch state {
+        case .x:
+            return NSLocalizedString("State X", comment: "")
+        case .o:
+            return NSLocalizedString("State Y", comment: "")
+        }
+    }
 }
