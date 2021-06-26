@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8721E2762687C98F00FEE142 /* TicTacToeGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8721E2752687C98F00FEE142 /* TicTacToeGridCell.xib */; };
+		8721E27B2687C9DD00FEE142 /* TicTacToeGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721E27A2687C9DD00FEE142 /* TicTacToeGridCell.swift */; };
 		87C7F04D268748E300977457 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7F04C268748E300977457 /* AppDelegate.swift */; };
 		87C7F04F268748E300977457 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C7F04E268748E300977457 /* SceneDelegate.swift */; };
 		87C7F054268748E300977457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87C7F052268748E300977457 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8721E2752687C98F00FEE142 /* TicTacToeGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicTacToeGridCell.xib; sourceTree = "<group>"; };
+		8721E27A2687C9DD00FEE142 /* TicTacToeGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeGridCell.swift; sourceTree = "<group>"; };
 		87C7F049268748E300977457 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87C7F04C268748E300977457 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87C7F04E268748E300977457 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8721E2712687C94500FEE142 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				8721E2752687C98F00FEE142 /* TicTacToeGridCell.xib */,
+				8721E27A2687C9DD00FEE142 /* TicTacToeGridCell.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
 		87C7F040268748E300977457 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +122,7 @@
 		87C7F04B268748E300977457 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				8721E2712687C94500FEE142 /* Reusable */,
 				87C7F09226874B1200977457 /* TicTacToe */,
 				87C7F04C268748E300977457 /* AppDelegate.swift */,
 				87C7F04E268748E300977457 /* SceneDelegate.swift */,
@@ -254,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8721E2762687C98F00FEE142 /* TicTacToeGridCell.xib in Resources */,
 				87C7F059268748E600977457 /* LaunchScreen.storyboard in Resources */,
 				87C7F056268748E600977457 /* Assets.xcassets in Resources */,
 				87C7F054268748E300977457 /* Main.storyboard in Resources */,
@@ -281,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8721E27B2687C9DD00FEE142 /* TicTacToeGridCell.swift in Sources */,
 				87C7F09426874B5000977457 /* GameEngine.swift in Sources */,
 				87C7F0AF268755A300977457 /* GameResult.swift in Sources */,
 				87C7F04D268748E300977457 /* AppDelegate.swift in Sources */,

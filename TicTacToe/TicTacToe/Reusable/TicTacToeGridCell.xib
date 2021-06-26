@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="b3X-QM-Heh" customClass="TicTacToeGridCell" customModule="TicTacToe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="115" height="89"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="P1Q-rp-xPH">
+                <rect key="frame" x="0.0" y="0.0" width="115" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahq-oM-y6U">
+                        <rect key="frame" x="57.5" y="44.5" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ahq-oM-y6U" firstAttribute="centerX" secondItem="P1Q-rp-xPH" secondAttribute="centerX" id="71x-tf-99v"/>
+                    <constraint firstItem="ahq-oM-y6U" firstAttribute="centerY" secondItem="P1Q-rp-xPH" secondAttribute="centerY" id="Z2q-Jv-0Y3"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="115" height="89"/>
+            <connections>
+                <outlet property="markerLabel" destination="ahq-oM-y6U" id="CP6-Oy-WoC"/>
+            </connections>
+            <point key="canvasLocation" x="29.710144927536234" y="43.861607142857139"/>
+        </collectionViewCell>
+    </objects>
+</document>
