@@ -13,6 +13,25 @@ final class TicTacToeGameEngineTests: XCTestCase {
     private let gameEngine = GameEngine()
 }
 
+// MARK: - Test game board values
+
+extension TicTacToeGameEngineTests {
+
+    func testGameBoardValues() {
+
+        gameEngine.ticTacToeMatrix = [
+            [.x, .o, .empty],
+            [.empty, .o, .x],
+            [.empty, .empty, .empty]
+        ]
+
+        XCTAssertEqual(
+            gameEngine.gameBoardValues,
+            [.x, .o, .empty, .empty, .o, .x, .empty, .empty, .empty],
+            "Game board values should be same with flattened matrix")
+    }
+}
+
 // MARK: - Restart game tests
 
 extension TicTacToeGameEngineTests {

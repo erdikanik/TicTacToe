@@ -19,6 +19,9 @@ protocol GameEngineInterface {
 
     /// Restart game and empty stored variables
     func restartTheGame()
+
+    /// Current values of game board
+    var gameBoardValues: [TicTacToeType] { get }
 }
 
 protocol GameEnginePrivateInterface {
@@ -51,6 +54,10 @@ final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
             [.empty, .empty, .empty],
             [.empty, .empty, .empty]
         ]
+
+    var gameBoardValues: [TicTacToeType] {
+        ticTacToeMatrix.flatMap { $0 }
+    }
 
     func restartTheGame() {
         gameState = .x
