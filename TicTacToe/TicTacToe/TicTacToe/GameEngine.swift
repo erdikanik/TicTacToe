@@ -54,6 +54,7 @@ final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
 
     func restartTheGame() {
         gameState = .x
+        ticTacToeMatrix = ticTacToeMatrix.map { _ in [.empty, .empty, .empty ] }
     }
 
     func markAndChangeGameState(row: Int, column: Int) -> GameState {

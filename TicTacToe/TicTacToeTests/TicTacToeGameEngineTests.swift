@@ -26,6 +26,21 @@ extension TicTacToeGameEngineTests {
             GameState.x,
             "Game state should be X after game is restarted")
     }
+
+    func testGameRestartedForFilledMatrix() {
+        gameEngine.ticTacToeMatrix = [
+            [.x, .o, .empty],
+            [.empty, .o, .x],
+            [.empty, .empty, .empty]
+        ]
+
+        gameEngine.restartTheGame()
+
+        let isTicTacToeMatrixIsEmpty =
+            !gameEngine.ticTacToeMatrix.flatMap { $0 }.contains(where: { $0 == .o || $0 == .x })
+
+        XCTAssertTrue(isTicTacToeMatrixIsEmpty, "Game matrix should be empty after game is restarted")
+    }
 }
 
 // MARK: - Mark and change game state tests
