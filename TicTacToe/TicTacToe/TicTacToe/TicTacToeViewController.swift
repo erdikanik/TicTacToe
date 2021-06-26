@@ -9,5 +9,6 @@ import UIKit
 
 final class TicTacToeViewController: UIViewController {
 
-    // TODO: Implement view controller
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var stateLabel: UILabel!
 }

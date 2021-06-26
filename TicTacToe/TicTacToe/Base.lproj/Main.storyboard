@@ -11,14 +11,19 @@
         <!--Tic Tac Toe View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="TicTacToeViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCy-ek-fFb">
+                                <rect key="frame" x="15" y="59" width="384" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qFG-E1-BlL">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="15" y="74" width="384" height="788"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="u2n-WH-EOA">
                                     <size key="itemSize" width="128" height="128"/>
@@ -32,13 +37,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qFG-E1-BlL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8gR-lT-z1k"/>
-                            <constraint firstItem="qFG-E1-BlL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ap8-rE-DAK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qFG-E1-BlL" secondAttribute="trailing" id="dyU-rX-XPq"/>
+                            <constraint firstItem="qFG-E1-BlL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="8gR-lT-z1k"/>
+                            <constraint firstItem="FCy-ek-fFb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="KBz-If-5F6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qFG-E1-BlL" secondAttribute="trailing" constant="15" id="dyU-rX-XPq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FCy-ek-fFb" secondAttribute="trailing" constant="15" id="esZ-jJ-yQo"/>
+                            <constraint firstItem="qFG-E1-BlL" firstAttribute="top" secondItem="FCy-ek-fFb" secondAttribute="bottom" constant="15" id="ix7-04-9fp"/>
+                            <constraint firstItem="FCy-ek-fFb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="kdK-gy-EXu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qFG-E1-BlL" secondAttribute="bottom" id="wFe-cH-ezX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="qFG-E1-BlL" id="Kbz-sh-1nj"/>
+                        <outlet property="stateLabel" destination="FCy-ek-fFb" id="0kY-zo-Udx"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-259" y="94"/>
         </scene>
