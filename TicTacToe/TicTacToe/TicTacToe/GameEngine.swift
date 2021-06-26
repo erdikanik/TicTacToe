@@ -44,7 +44,7 @@ enum GameState {
     }
 }
 
-final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
+final class GameEngine: GameEnginePrivateInterface {
 
     var gameState: GameState = .x
 
@@ -58,6 +58,11 @@ final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
     var gameBoardValues: [TicTacToeType] {
         ticTacToeMatrix.flatMap { $0 }
     }
+}
+
+// MARK - Game Engine Interface
+
+extension GameEngine: GameEngineInterface {
 
     func restartTheGame() {
         gameState = .x
@@ -71,7 +76,7 @@ final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
         toggleGameState()
         return gameState
     }
-    
+
     func gameResult() -> GameResult {
 
         guard !ticTacToeMatrix.isEmpty else {
@@ -155,6 +160,8 @@ private extension GameEngine {
         return .none
     }
 
+    /// Check the matrix vertically
+    /// - Returns: Winner type
     func verticallyCheckTheMatrix() -> WinnerType {
         for x in 0..<ticTacToeMatrix.count {
             let previous = ticTacToeMatrix[0][x]
@@ -175,6 +182,8 @@ private extension GameEngine {
         return .none
     }
 
+    /// Check the matrix on cross
+    /// - Returns: Winner type
     func crossCheckTheMatrix() -> WinnerType {
 
         if ticTacToeMatrix[0][0] != .empty &&
