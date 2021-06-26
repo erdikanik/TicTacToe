@@ -108,4 +108,14 @@ final class TicTacToeGameEngineTests: XCTestCase {
 
          XCTAssertEqual(.draw, gameEngine.gameResult(), "Game result should be draw in draw case")
      }
+
+    func testGameResultContinueCase() {
+        gameEngine.ticTacToeMatrix = [
+            [.empty, .x, .o],
+            [.x, .o, .empty],
+            [.x, .o, .x]
+        ]
+
+        XCTAssertEqual(.gameContinue, gameEngine.gameResult(), "Game should continue for in this case")
+    }
 }
