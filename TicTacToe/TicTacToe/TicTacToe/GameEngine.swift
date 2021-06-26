@@ -50,7 +50,7 @@ final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
             return crossResult.gameResult()
         }
 
-        return .gameContinue
+        return isTheMatrixFilled() ? .draw : .gameContinue
     }
 }
 
@@ -147,5 +147,9 @@ private extension GameEngine {
         }
 
         return .none
+    }
+
+    func isTheMatrixFilled() -> Bool {
+        return !ticTacToeMatrix.flatMap { $0 }.contains(where: { $0 == .empty })
     }
 }
