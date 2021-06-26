@@ -13,6 +13,26 @@ final class TicTacToeGameEngineTests: XCTestCase {
     private let gameEngine = GameEngine()
 }
 
+// MARK: - Mark and change game state tests
+
+extension TicTacToeGameEngineTests {
+
+    func testMarkAndChangeGameStateForEmptyMatrix() {
+
+        gameEngine.gameState = .x
+        gameEngine.ticTacToeMatrix = [
+            [.empty, .empty, .empty],
+            [.empty, .empty, .empty],
+            [.empty, .empty, .empty]
+        ]
+
+        XCTAssertEqual(
+            gameEngine.markAndChangeGameState(row: 0, column: 0),
+            GameState.o,
+            "Game state should be O")
+    }
+}
+
 // MARK: - Game result tests
 
 extension TicTacToeGameEngineTests {

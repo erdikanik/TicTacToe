@@ -13,14 +13,34 @@ protocol GameEngineInterface {
 
     /// Game result
     func gameResult() -> GameResult
+
+    /// Marks and return next state
+    func markAndChangeGameState(row: Int, column: Int) -> GameState
 }
 
 protocol GameEnginePrivateInterface {
 
     var ticTacToeMatrix: [[TicTacToeType]] { get set }
+    var gameState: GameState { get set }
+}
+
+enum GameState {
+    case x
+    case o
+
+    func toTicTacToeType() -> TicTacToeType {
+        switch self {
+        case .x:
+            return .x
+        case .o:
+            return .o
+        }
+    }
 }
 
 final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
+
+    var gameState: GameState = .x
 
     var ticTacToeMatrix: [[TicTacToeType]] =
         [
@@ -29,6 +49,12 @@ final class GameEngine: GameEngineInterface, GameEnginePrivateInterface {
             [.empty, .empty, .empty]
         ]
 
+    func markAndChangeGameState(row: Int, column: Int) -> GameState {
+        ticTacToeMatrix[row][column] = gameState.toTicTacToeType()
+        toggleGameState()
+        return gameState
+    }
+    
     func gameResult() -> GameResult {
 
         guard !ticTacToeMatrix.isEmpty else {
@@ -151,5 +177,13 @@ private extension GameEngine {
 
     func isTheMatrixFilled() -> Bool {
         return !ticTacToeMatrix.flatMap { $0 }.contains(where: { $0 == .empty })
+    }
+
+    func toggleGameState() {
+        if gameState == .x {
+            gameState = .o
+        } else {
+            gameState = .x
+        }
     }
 }
