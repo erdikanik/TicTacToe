@@ -25,7 +25,7 @@ final class TicTacToeViewModel: TicTacToeViewModelPrivateInterface {
 
     enum State {
 
-        case gameStarted([TicTacToeType], String)
+        case gameStarted([String], String)
     }
 
     var stateChangeHandler: ((State) -> Void)?
@@ -38,8 +38,12 @@ final class TicTacToeViewModel: TicTacToeViewModelPrivateInterface {
 extension TicTacToeViewModel: TicTacToeViewModelInterface {
 
     func needsToRestartTheGame() {
-        stateChangeHandler?(.gameStarted(gameEngine.gameBoardValues,
-                                        localizedPlayerState(state: gameEngine.playerState)))
+        stateChangeHandler?(
+            .gameStarted(
+                gameEngine.gameBoardValues.map { localizedTicTacTocType(type: $0) },
+                localizedPlayerState(state: gameEngine.playerState)
+            )
+        )
     }
 }
 
@@ -52,7 +56,18 @@ private extension TicTacToeViewModel {
         case .x:
             return NSLocalizedString("Player X", comment: "")
         case .o:
-            return NSLocalizedString("Player Y", comment: "")
+            return NSLocalizedString("Player O", comment: "")
+        }
+    }
+
+    func localizedTicTacTocType(type: TicTacToeType) -> String {
+        switch type {
+        case .x:
+            return NSLocalizedString("X", comment: "")
+        case .o:
+            return NSLocalizedString("O", comment: "")
+        case .empty:
+            return NSLocalizedString("", comment: "")
         }
     }
 }

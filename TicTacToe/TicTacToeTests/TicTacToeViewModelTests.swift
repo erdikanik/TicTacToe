@@ -48,8 +48,8 @@ extension TicTacToeViewModelTests {
             switch state {
             case .gameStarted(let types, _):
                 XCTAssertTrue(
-                    !types.contains(where: { $0 == .x || $0 == .o }),
-                    "All TicTocToe types should be empty"
+                    types.first(where: { $0 != "" }) == nil,
+                    "All types should be empty string"
                 )
             default:
                 break
