@@ -79,8 +79,8 @@ extension GameEngine: GameEngineInterface {
     func markAndChangeGameState(row: Int, column: Int) -> GameState {
         guard ticTacToeMatrix[row][column] == .empty else { return gameState }
 
-        toggleGameState()
         ticTacToeMatrix[row][column] = gameState.toTicTacToeType()
+        toggleGameState()
         return gameState
     }
 

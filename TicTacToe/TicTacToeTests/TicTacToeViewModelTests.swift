@@ -39,10 +39,10 @@ extension TicTacToeViewModelTests {
         viewModel.markGameBoard(with: 8)
 
         let expectation = XCTestExpectation(description: "Wait for testing")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 2)
     }
 
     func testMarkGameBoardGameFinishedXWon() {
@@ -70,10 +70,10 @@ extension TicTacToeViewModelTests {
         viewModel.markGameBoard(with: 8)
 
         let expectation = XCTestExpectation(description: "Wait for testing")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 2)
     }
 
     func testMarkGameBoardGameFinishedAsDraw() {
@@ -101,10 +101,10 @@ extension TicTacToeViewModelTests {
         viewModel.markGameBoard(with: 8)
 
         let expectation = XCTestExpectation(description: "Wait for testing")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 2)
     }
 
     func testMarkGameBoardFilledCell() {
@@ -135,10 +135,10 @@ extension TicTacToeViewModelTests {
         viewModel.markGameBoard(with: 8)
 
         let expectation = XCTestExpectation(description: "Wait for testing")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 2)
     }
 
     func testMarkGameBoardEmptyCell() {
@@ -154,7 +154,7 @@ extension TicTacToeViewModelTests {
 
         viewModel.gameEngine = gameEngine
 
-        let resultTypes = ["X", "O", "", "", "O", "X", "", "", "X"]
+        let resultTypes = ["X", "O", "", "", "O", "X", "", "", "O"]
 
         viewModel.stateChangeHandler = { state in
             switch state {
@@ -169,10 +169,10 @@ extension TicTacToeViewModelTests {
         viewModel.markGameBoard(with: 8)
 
         let expectation = XCTestExpectation(description: "Wait for testing")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 2)
     }
 }
 
@@ -199,10 +199,10 @@ extension TicTacToeViewModelTests {
         viewModel.needsToRestartTheGame()
 
         let expectation = XCTestExpectation(description: "Wait for testing")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 2)
     }
 
     func testNeedsToRestartTheGameForTypes() {
@@ -224,9 +224,9 @@ extension TicTacToeViewModelTests {
         viewModel.needsToRestartTheGame()
 
         let expectation = XCTestExpectation(description: "Wait for testing")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.3)
+        wait(for: [expectation], timeout: 2)
     }
 }
