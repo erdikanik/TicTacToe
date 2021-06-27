@@ -80,13 +80,14 @@ extension TicTacToeViewController: UICollectionViewDataSource {
         cell.contentView.layer.borderColor = UIColor.gray.cgColor
         cell.contentView.layer.borderWidth = 2
 
-        // TODO: Will be implemented
+        let markerName = stateNames[indexPath.row]
+        cell.markerName = markerName
 
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: Will be implemented
+        viewModel.markGameBoard(with: indexPath.row)
     }
 }
 
