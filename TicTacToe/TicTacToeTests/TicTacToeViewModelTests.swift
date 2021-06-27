@@ -205,6 +205,41 @@ extension TicTacToeViewModelTests {
         wait(for: [expectation], timeout: 2)
     }
 
+    func testNeedsToRestartTheGameForTypesGridFilled() {
+
+        let viewModel = TicTacToeViewModel()
+
+        let gameEngine = GameEngine()
+
+        gameEngine.ticTacToeMatrix = [
+            [.x, .o, .empty],
+            [.empty, .o, .x],
+            [.empty, .empty, .empty]
+        ]
+
+        viewModel.gameEngine = gameEngine
+
+        viewModel.stateChangeHandler = { state in
+            switch state {
+            case .gameStarted(let types, _):
+                XCTAssertTrue(
+                    types.first(where: { $0 != "" }) == nil,
+                    "All types should be empty string"
+                )
+            default:
+                break
+            }
+        }
+
+        viewModel.needsToRestartTheGame()
+
+        let expectation = XCTestExpectation(description: "Wait for testing")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 2)
+    }
+
     func testNeedsToRestartTheGameForTypes() {
 
         let viewModel = TicTacToeViewModel()

@@ -49,6 +49,7 @@ final class TicTacToeViewModel: TicTacToeViewModelPrivateInterface {
 extension TicTacToeViewModel: TicTacToeViewModelInterface {
 
     func needsToRestartTheGame() {
+        gameEngine.restartTheGame()
         stateChangeHandler?(
             .gameStarted(
                 gameEngine.gameBoardValues.map { localizedTicTacTocType(type: $0) },
