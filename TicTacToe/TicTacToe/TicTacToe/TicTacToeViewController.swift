@@ -39,7 +39,8 @@ final class TicTacToeViewController: UIViewController {
                 self?.updateStateAndCells(types: types, stateName: stateName)
             case .gameStateChanged(let types, let stateName):
                 self?.updateStateAndCells(types: types, stateName: stateName)
-            case.gameFinished(_):
+            case.gameFinished(let message):
+                self?.createAlertController(with: message)
                 break
             }
         }
@@ -56,6 +57,15 @@ private extension TicTacToeViewController {
         stateNames = types
         stateLabel.text = stateName
         collectionView.reloadData()
+    }
+
+    func createAlertController(with message: String) {
+
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { [weak self] _ in
+            self?.viewModel.needsToRestartTheGame()
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
